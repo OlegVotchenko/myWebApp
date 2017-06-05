@@ -1,11 +1,13 @@
-package org.itstep.mywebapp;
+package org.itstep.mywebapp.repository;
+
+import org.itstep.mywebapp.model.User;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserRepository {
+public class MockUserRepository implements UserRepository {
 
-    List<User> userList = new ArrayList<>();
+    private List<User> userList = new ArrayList<>();
 
     {
         userList.add(new User("Mike"));
