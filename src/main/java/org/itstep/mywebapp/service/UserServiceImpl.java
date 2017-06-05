@@ -15,4 +15,9 @@ public class UserServiceImpl implements UserService {
         return repository.getAll();
     }
 
+    @Override
+    public void delete(Integer id) {
+        repository.delete(id);
+    }
+
 }
