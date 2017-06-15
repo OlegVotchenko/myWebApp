@@ -17,6 +17,7 @@ public class MockUserRepository implements UserRepository {
         users.put(2, new User(2, "Natasha", LocalDateTime.now()));
     }
 
+    @Override
     public List<User> getAll() {
         return new ArrayList<>(users.values());
     }
