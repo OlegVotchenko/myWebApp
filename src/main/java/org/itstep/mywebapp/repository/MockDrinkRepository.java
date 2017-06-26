@@ -34,7 +34,7 @@ public class MockDrinkRepository implements DrinkRepository {
 
     @Override
     public List<Drink> getAll() {
-        LOG.debug("Gel all drinks");
+        LOG.debug("Gel all drinks of user = {}", Logged.id);
 
         ArrayList<Drink> drinkArrayList = new ArrayList<>();
         for (Map.Entry<Integer, Drink> entry : drinkMap.entrySet()) {
