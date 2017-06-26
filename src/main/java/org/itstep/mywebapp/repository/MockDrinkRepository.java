@@ -2,6 +2,9 @@ package org.itstep.mywebapp.repository;
 
 import org.itstep.mywebapp.Logged;
 import org.itstep.mywebapp.model.Drink;
+import org.itstep.mywebapp.web.DrinkServlet;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 import java.time.LocalDateTime;
@@ -15,7 +18,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * Created by Votchenko on 18.06.2017.
  */
 public class MockDrinkRepository implements DrinkRepository {
-
+    private static final Logger LOG = LoggerFactory.getLogger(DrinkRepository.class);
     private Map<Integer, Drink> drinkMap = new ConcurrentHashMap<>();
 
     private AtomicInteger idCounter = new AtomicInteger(1);
@@ -31,6 +34,7 @@ public class MockDrinkRepository implements DrinkRepository {
 
     @Override
     public List<Drink> getAll() {
+        LOG.debug("Gel all drinks");
 
         ArrayList<Drink> drinkArrayList = new ArrayList<>();
         for (Map.Entry<Integer, Drink> entry : drinkMap.entrySet()) {
@@ -42,12 +46,15 @@ public class MockDrinkRepository implements DrinkRepository {
     }
 
     @Override
+
     public void delete(Integer id) {
+        LOG.debug("Delete drink with id = {}", id);
         drinkMap.remove(id);
     }
 
     @Override
     public Drink save(Drink drink) {
+        LOG.debug("Save drink with id = {}", drink.getId());
         if (drink.getId() == null){
             drink.setId(idCounter.getAndIncrement());
             drink.setDateTime(LocalDateTime.now());
@@ -61,6 +68,7 @@ public class MockDrinkRepository implements DrinkRepository {
 
     @Override
     public Drink get(Integer userId, Integer id) {
+        LOG.debug("Get drink with id = {}", id);
         return drinkMap.get(id);
     }
 }
