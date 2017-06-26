@@ -23,4 +23,14 @@ public class DrinkServiceImpl implements DrinkService {
     public Drink get(Integer userId, Integer id) {
         return repository.get(userId, id);
     }
+
+    @Override
+    public void delete(Integer userId, Integer id) {
+        repository.delete(id);
+    }
+
+    @Override
+    public Drink save(Drink drink) {
+        return repository.save(drink);
+    }
 }

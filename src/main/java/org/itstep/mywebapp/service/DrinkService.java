@@ -10,4 +10,8 @@ public interface DrinkService {
 
     Drink get(Integer userId, Integer id);
 
+    void delete(Integer userId, Integer id);
+
+    Drink save(Drink drink);
+
 }

@@ -33,9 +33,11 @@
             <td><%=drink.getCapacity()%></td>
             <td><%=fmt.format(drink.getDateTime())%></td>
             <td><%=drink.getUserId()%></td>
+            <td><a href="drinks?action=update&id=${drink.id}">UPDATE</a></td>
+            <td><a href="drinks?action=delete&id=${drink.id}">DELETE</a></td>
         </tr>
     </c:forEach>
 </table>
-
+<a href="drinks?action=create">ADD</a>
 </body>
 </html>

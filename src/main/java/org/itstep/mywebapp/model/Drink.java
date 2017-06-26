@@ -13,6 +13,15 @@ public class Drink {
     LocalDateTime dateTime;
 
     Integer userId;
+
+    public Drink() {
+
+    }
+
+    public Drink(int id) {
+        this.id = id;
+    }
+
     public Integer getUserId() {
         return userId;
     }
